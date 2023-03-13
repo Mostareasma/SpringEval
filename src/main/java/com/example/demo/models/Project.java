@@ -1,17 +1,24 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    Long id;
     String title;
     String description;
+
+    @OneToMany(mappedBy = "project")
+    private Set<Task> tasks;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Project user;
+
 
 }

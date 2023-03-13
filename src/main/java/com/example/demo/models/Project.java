@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NamedQuery;
 
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@NamedQuery(name = "saveWithNamedQuery", query = "INSERT INTO Project (id, title, description, user) VALUES (:project_id, :title, :description, :user)")
 public class Project {
 
     @Id

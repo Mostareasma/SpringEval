@@ -17,8 +17,5 @@ public class ProjectService {
     public List<Project> search(String title) {
         return projectRepository.findByTitleContainsIgnoreCaseOrderById(title);
     }
-    public Project saveWithNamedQuery(Long id, String title, String description, Long userId) {
-        return projectRepository.saveWithNamedQuery(id, title, description, userId);
-    }
 
 }
